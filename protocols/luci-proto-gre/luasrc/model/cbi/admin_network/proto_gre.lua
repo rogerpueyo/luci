@@ -24,7 +24,7 @@ mtu.placeholder = 1280
 mtu.datatype = "and(min(68),max(9200))"
 
 ttl = section:taboption("advanced", Value, "ttl", translate("Override TTL"), translate("Specify a TTL (Time to Live) for the encapsulating packet other than the default (64)."))
-ttl.optional = true
+ttl.optional = truev
 ttl.placeholder = 64
 ttl.datatype = "min(1)"
 
@@ -34,11 +34,11 @@ tos.datatype = "and(min(0),max(255))"
 
 okey = section:taboption("advanced", Value, "okey", translate("Set output key"), translate("Use keyed GRE for outgoing packets (an IPv4 address or a number)"))
 okey.optional = true
-okey.datatype = "or(ip4addr,uint)"
+okey.datatype = "or(min(0),ip4addr)"
 
 ikey = section:taboption("advanced", Value, "ikey", translate("Set input key"), translate("Use keyed GRE for incomming packets (an IPv4 address or a number)"))
 ikey.optional = true
-ikey.datatype = "or(ip4addr,uint)"
+ikey.datatype = "or(min(0),ip4addr)"
 
 ocsum = section:taboption("advanced", Flag, "ocsum", translate("Add checksums"), translate("Add a checksum to all outgoing packets (ocsum flag)."))
 
