@@ -32,20 +32,20 @@ tos = section:taboption("advanced", Value, "tos", translate("Set TOS"), translat
 tos.optional = true
 tos.datatype = "and(min(0),max(255))"
 
-ikey = section:taboption("advanced", Value, "ikey", translate("ikey"), translate("ikey"))
-ikey.optional = true
-ikey.datatype = "or(ip4addr,uint)"
-
-okey = section:taboption("advanced", Value, "okey", translate("okey"), translate("okey"))
+okey = section:taboption("advanced", Value, "okey", translate("Set output key"), translate("Use keyed GRE for outgoing packets (an IPv4 address or a number)"))
 okey.optional = true
 okey.datatype = "or(ip4addr,uint)"
 
-icsum = section:taboption("advanced", Flag, "icsum", translate("icsum"), translate("icsum."))
+ikey = section:taboption("advanced", Value, "ikey", translate("Set input key"), translate("Use keyed GRE for incomming packets (an IPv4 address or a number)"))
+ikey.optional = true
+ikey.datatype = "or(ip4addr,uint)"
 
-ocsum = section:taboption("advanced", Flag, "ocsum", translate("ocsum"), translate("ocsum."))
+ocsum = section:taboption("advanced", Flag, "ocsum", translate("Add checksums"), translate("Add a checksum to all outgoing packets (ocsum flag)."))
 
-iseqno = section:taboption("advanced", Flag, "iseqno", translate("iseqno"), translate("iseqno."))
+icsum = section:taboption("advanced", Flag, "icsum", translate("Require checksums"), translate("Require that all input packets have the correct checksum (icsum flag)."))
 
-oseqno = section:taboption("advanced", Flag, "oseqno", translate("oseqno"), translate("oseqno."))
+oseqno = section:taboption("advanced", Flag, "oseqno", translate("Add serialization"), translate("Add a sequencing number of outgoing packets (oseqno flag)."))
+
+iseqno = section:taboption("advanced", Flag, "iseqno", translate("Require serialization"), translate("Require that all input packets are serialized (iseq flag)."))
 
 df = section:taboption("advanced", Flag, "df", translate("Don't Fragment"), translate("Enable the DF (Don't Fragment) flag of the encapsulating packets."))
