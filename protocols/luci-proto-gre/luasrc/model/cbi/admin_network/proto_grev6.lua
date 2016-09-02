@@ -6,15 +6,18 @@ local map, section, net = ...
 local peeraddr, ipaddr, tunlink, mtu, ttl, tos, zone, ikey, okey, icsum, ocsum, iseqno, oseqno, df
 
 
-peeraddr = section:taboption("general", Value, "peeraddr", translate("Remote IPv4 address"), translate("The IPv4 address of the remote tunnel end."))
-peeraddr.optional = false
-peeraddr.datatype = "ip4addr"
+peer6addr = section:taboption("general", Value, "peer6addr", translate("Remote IPv6 address"), translate("The IPv6 address of the remote tunnel end."))
+peer6addr.optional = false
+peer6addr.datatype = "ip6addr"
 
-ipaddr = section:taboption("general", Value, "ipaddr", translate("Local IPv4 address"), translate("The local IPv4 address over which the tunnel is created (optional)."))
-ipaddr.optional = true
-ipaddr.datatype = "ip4addr"
+ip6addr = section:taboption("general", Value, "ip6addr", translate("Local IPv6 address"), translate("The local IPv6 address over which the tunnel is created (optional)."))
+ip6addr.optional = true
+ip6addr.datatype = "ip6addr"
 
 tunlink = section:taboption("general", Value, "tunlink", translate("Bind interface"), translate("Bind the tunnel to this interface (optional)."))
+ipaddr.optional = true
+
+weakif = section:taboption("general", Value, "tunlink", translate("Bind interface"), translate("Bind the tunnel to this interface (optional)."))
 ipaddr.optional = true
 
 
@@ -50,5 +53,3 @@ icsum = section:taboption("advanced", Flag, "icsum", translate("Require checksum
 oseqno = section:taboption("advanced", Flag, "oseqno", translate("Add serialization"), translate("Add a sequencing number of outgoing packets (oseqno flag)."))
 
 iseqno = section:taboption("advanced", Flag, "iseqno", translate("Require serialization"), translate("Require that all input packets are serialized (iseq flag)."))
-
-df = section:taboption("advanced", Flag, "df", translate("Don't Fragment"), translate("Enable the DF (Don't Fragment) flag of the encapsulating packets."))
