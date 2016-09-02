@@ -14,9 +14,9 @@ for _, p in ipairs({"gre", "gretap", "grev6", "grev6tap"}) do
 		elseif p == "gretap" then
 			return luci.i18n.translate("GRE-TAP in IPv4 (RFC2784)")
 		elseif p == "grev6" then
-			return luci.i18n.translate("GRE in IPv6 (RFC767)")
+			return luci.i18n.translate("GRE in IPv6 (RFC7676)")
 		elseif p == "grev6tap" then
-			return luci.i18n.translate("GRE-TAP in IPv6 (RFC767)")
+			return luci.i18n.translate("GRE-TAP in IPv6 (RFC7676)")
 		end
 	end
 
