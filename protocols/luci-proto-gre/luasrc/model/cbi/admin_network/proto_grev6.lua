@@ -3,7 +3,7 @@
 
 local map, section, net = ...
 
-local peeraddr, ipaddr, tunlink, mtu, ttl, tos, zone, ikey, okey, icsum, ocsum, iseqno, oseqno, df
+local peer6addr, ip6addr, tunlink, weakif, mtu, ttl, tos, zone, ikey, okey, icsum, ocsum, iseqno, oseqno, df
 
 
 peer6addr = section:taboption("general", Value, "peer6addr", translate("Remote IPv6 address"), translate("The IPv6 address of the remote tunnel end."))
@@ -15,10 +15,10 @@ ip6addr.optional = true
 ip6addr.datatype = "ip6addr"
 
 tunlink = section:taboption("general", Value, "tunlink", translate("Bind interface"), translate("Bind the tunnel to this interface (optional)."))
-ipaddr.optional = true
+tunlink.optional = true
 
-weakif = section:taboption("general", Value, "tunlink", translate("Bind interface"), translate("Bind the tunnel to this interface (optional)."))
-ipaddr.optional = true
+weakif = section:taboption("general", Value, "weakif", translate("weakif"), translate("weakif."))
+weakif.optional = true
 
 
 mtu = section:taboption("advanced", Value, "mtu", translate("Override MTU"), translate("Specify an MTU (Maximum Transmission Unit) other than the default (1280 bytes)."))
